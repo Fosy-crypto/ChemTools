@@ -5,10 +5,9 @@ st.title("🧪 ChemLab Mini Tools")
 menu = st.sidebar.selectbox("Pilih Fitur", [
     "Kalkulator Pengenceran",
     "Tebak Warna Reaksi",
-    "Kenapa Gagal?",
-    "Backsound"
+    "Kenapa Gagal?"
 ])
-
+    "Backsound"
 # =========================
 # 1. Kalkulator Pengenceran
 # =========================
@@ -66,5 +65,3 @@ elif menu == "Kenapa Gagal?":
             st.write("- Konsentrasi terlalu tinggi")
             st.write("- Salah perhitungan awal")
 
-elif menu =="Backsound" :
-       st.audio("cat-purr.mp3", format="audio/mpeg", loop=True)
