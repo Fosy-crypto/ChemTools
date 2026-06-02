@@ -9,17 +9,24 @@ st.set_page_config(
 )
 
 # =========================
-# CSS BACKGROUND + UI STYLE
+# THEME: NAVY + MINERAL BLUE
 # =========================
 st.markdown(
     """
     <style>
 
-    /* Background */
+    /* Background utama */
     .stApp {
-        background: linear-gradient(135deg, #e0f7fa, #e8f5e9, #fff3e0);
+        background: linear-gradient(
+            135deg,
+            #0b1320,
+            #102a43,
+            #1f6f8b,
+            #2d9cdb
+        );
         background-size: 400% 400%;
-        animation: gradientBG 12s ease infinite;
+        animation: gradientBG 14s ease infinite;
+        color: #e6f1ff;
     }
 
     @keyframes gradientBG {
@@ -28,18 +35,41 @@ st.markdown(
         100% {background-position: 0% 50%;}
     }
 
-    /* Card container */
+    /* Container glass effect */
     .block-container {
         padding: 2rem;
-        border-radius: 15px;
-        background-color: rgba(255,255,255,0.88);
-        box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
+        border-radius: 16px;
+        background-color: rgba(10, 25, 47, 0.75);
+        box-shadow: 0px 8px 30px rgba(0,0,0,0.5);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(45, 156, 219, 0.2);
     }
 
-    /* Button style */
+    /* Text */
+    h1, h2, h3, h4, p, label {
+        color: #e6f1ff !important;
+    }
+
+    /* Button */
     button[kind="primary"] {
         border-radius: 10px !important;
-        background-color: #4CAF50 !important;
+        background-color: #2d9cdb !important;
+        color: #0b1320 !important;
+        font-weight: bold;
+        border: none !important;
+    }
+
+    /* Input */
+    input {
+        background-color: #102a43 !important;
+        color: #e6f1ff !important;
+        border-radius: 8px !important;
+        border: 1px solid #1f6f8b !important;
+    }
+
+    /* Sidebar */
+    section[data-testid="stSidebar"] {
+        background-color: #0b1320 !important;
     }
 
     </style>
@@ -51,7 +81,7 @@ st.markdown(
 # TITLE
 # =========================
 st.markdown(
-    "<h2 style='text-align:center;color:#2e7d32;'>🧪 ChemLab Mini Tools</h2>",
+    "<h2 style='text-align:center;color:#2d9cdb;'>🧪 ChemLab Mini Tools</h2>",
     unsafe_allow_html=True
 )
 
