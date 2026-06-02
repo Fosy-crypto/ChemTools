@@ -11,28 +11,27 @@ menu = st.sidebar.selectbox("Pilih Fitur", [
 # =========================
 # 1. Kalkulator Pengenceran
 # =========================
-if menu == "Kalkulator Pengenceran":
-    st.header("📊 Kalkulator Pengenceran")
+st.header("📊 Kalkulator Pengenceran")
 
-    st.latex(r"C_1 \times V_1 = C_2 \times V_2")
+st.latex(r"C_1 \times V_1 = C_2 \times V_2")
 
-    if "history" not in st.session_state:
-        st.session_state.history = []
+if "history" not in st.session_state:
+    st.session_state.history = []
 
-    satuan = st.selectbox(
-        "Satuan Volume",
-        ["mL", "L"]
-    )
+satuan = st.selectbox(
+    "Satuan Volume",
+    ["mL", "L"]
+)
 
-    satuan_konsentrasi = st.selectbox(
-        "Satuan Konsentrasi",
-        ["M", "m", "N", "%"]
-    )
+satuan_konsentrasi = st.selectbox(
+    "Satuan Konsentrasi",
+    ["M", "m", "N", "%"]
+)
 
-    cari = st.selectbox(
-        "Pilih variabel yang ingin dicari",
-        ["V2", "C1", "C2", "V1"]
-    )
+cari = st.selectbox(
+    "Pilih variabel yang ingin dicari",
+    ["V2", "C1", "C2", "V1"]
+)
 
     if cari == "V2":
         C1 = st.number_input("Konsentrasi Awal (C1)", min_value=0.0)
