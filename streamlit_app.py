@@ -9,14 +9,14 @@ st.set_page_config(
 )
 
 # =========================
-# THEME FIX (LIGHT/DARK/ SYSTEM SAFE)
+# SAFE THEME (NAVY + MINERAL BLUE)
 # =========================
 st.markdown(
     """
     <style>
 
     /* =========================
-       BACKGROUND UTAMA
+       BACKGROUND
        ========================= */
     .stApp {
         background: linear-gradient(
@@ -38,7 +38,7 @@ st.markdown(
     }
 
     /* =========================
-       CONTAINER GLASS
+       GLASS CONTAINER
        ========================= */
     .block-container {
         padding: 2rem;
@@ -50,20 +50,25 @@ st.markdown(
     }
 
     /* =========================
-       TEXT SELALU TERLIHAT
+       TEXT FIX
        ========================= */
     h1, h2, h3, h4, h5, p, label, span {
         color: #e6f1ff !important;
     }
 
     /* =========================
-       INPUT FIX (LIGHT/DARK SAFE)
+       INPUT FIX (STREAMLIT SAFE)
        ========================= */
-    input, textarea {
+    div[data-baseweb="input"] input {
         background-color: #0f2740 !important;
         color: #ffffff !important;
         border: 1px solid #2d9cdb !important;
         caret-color: #2d9cdb !important;
+    }
+
+    textarea {
+        background-color: #0f2740 !important;
+        color: #ffffff !important;
     }
 
     input::placeholder, textarea::placeholder {
@@ -72,9 +77,9 @@ st.markdown(
     }
 
     /* =========================
-       BUTTON FIX (SUBMIT ALWAYS VISIBLE)
+       BUTTON FIX (AMAN STREAMLIT VERSION)
        ========================= */
-    button[kind="primary"], button {
+    div.stButton > button {
         background-color: #2d9cdb !important;
         color: #0b1320 !important;
         font-weight: bold !important;
@@ -90,7 +95,7 @@ st.markdown(
     }
 
     /* =========================
-       STREAMLIT TOOLBAR HIDE
+       TOOLBAR HIDE
        ========================= */
     div[data-testid="stToolbar"] {
         display: none !important;
@@ -256,5 +261,4 @@ elif menu == "Kenapa Gagal?":
             st.write("- Larutan tidak homogen")
         elif masalah == "End point terlalu cepat":
             st.write("- Titrasi terlalu cepat")
-            st.write("- Konsentrasi terlalu tinggi")itrasi terlalu cepat")
             st.write("- Konsentrasi terlalu tinggi")
