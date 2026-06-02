@@ -16,14 +16,17 @@ if menu == "Kalkulator Pengenceran":
 
     st.latex(r"C_1 \times V_1 = C_2 \times V_2")
 
-    # Riwayat
     if "history" not in st.session_state:
         st.session_state.history = []
 
-    # Satuan volume
     satuan = st.selectbox(
         "Satuan Volume",
         ["mL", "L"]
+    )
+
+    satuan_konsentrasi = st.selectbox(
+        "Satuan Konsentrasi",
+        ["M", "m", "N", "%"]
     )
 
     cari = st.selectbox(
