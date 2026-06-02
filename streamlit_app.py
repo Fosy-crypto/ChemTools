@@ -9,13 +9,15 @@ st.set_page_config(
 )
 
 # =========================
-# THEME: NAVY + MINERAL BLUE + FIX GARIS
+# THEME FIX (LIGHT/DARK/ SYSTEM SAFE)
 # =========================
 st.markdown(
     """
     <style>
 
-    /* Background utama */
+    /* =========================
+       BACKGROUND UTAMA
+       ========================= */
     .stApp {
         background: linear-gradient(
             135deg,
@@ -35,7 +37,9 @@ st.markdown(
         100% {background-position: 0% 50%;}
     }
 
-    /* Container glass effect */
+    /* =========================
+       CONTAINER GLASS
+       ========================= */
     .block-container {
         padding: 2rem;
         border-radius: 16px;
@@ -45,53 +49,51 @@ st.markdown(
         border: 1px solid rgba(45, 156, 219, 0.2);
     }
 
-    /* Text */
-    h1, h2, h3, h4, p, label {
+    /* =========================
+       TEXT SELALU TERLIHAT
+       ========================= */
+    h1, h2, h3, h4, h5, p, label, span {
         color: #e6f1ff !important;
     }
 
-    /* Button */
-    button[kind="primary"] {
-        border-radius: 10px !important;
+    /* =========================
+       INPUT FIX (LIGHT/DARK SAFE)
+       ========================= */
+    input, textarea {
+        background-color: #0f2740 !important;
+        color: #ffffff !important;
+        border: 1px solid #2d9cdb !important;
+        caret-color: #2d9cdb !important;
+    }
+
+    input::placeholder, textarea::placeholder {
+        color: #a9c7e6 !important;
+        opacity: 1 !important;
+    }
+
+    /* =========================
+       BUTTON FIX (SUBMIT ALWAYS VISIBLE)
+       ========================= */
+    button[kind="primary"], button {
         background-color: #2d9cdb !important;
         color: #0b1320 !important;
-        font-weight: bold;
+        font-weight: bold !important;
+        border-radius: 10px !important;
         border: none !important;
     }
 
-    /* Input */
-    input {
-        background-color: #102a43 !important;
-        color: #e6f1ff !important;
-        border-radius: 8px !important;
-        border: 1px solid #1f6f8b !important;
-    }
-
-    /* Sidebar */
+    /* =========================
+       SIDEBAR
+       ========================= */
     section[data-testid="stSidebar"] {
         background-color: #0b1320 !important;
     }
 
     /* =========================
-       FIX GARIS / DIVIDER STREAMLIT
+       STREAMLIT TOOLBAR HIDE
        ========================= */
-
-    hr {
-        display: none !important;
-    }
-
-    div[data-testid="stHeader"] {
-        border-bottom: none !important;
-        box-shadow: none !important;
-    }
-
     div[data-testid="stToolbar"] {
         display: none !important;
-    }
-
-    h1, h2, h3 {
-        border-bottom: none !important;
-        box-shadow: none !important;
     }
 
     </style>
@@ -135,7 +137,6 @@ if menu == "Kalkulator Pengenceran":
 
     cari = st.selectbox("Pilih variabel yang ingin dicari", ["V2", "C1", "C2", "V1"])
 
-    # V2
     if cari == "V2":
         C1 = st.number_input(f"C1 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C1")
         V1 = st.number_input(f"V1 ({satuan})", value=None, placeholder="Masukkan V1")
@@ -152,7 +153,6 @@ if menu == "Kalkulator Pengenceran":
                 st.session_state.history.append(hasil)
                 st.success(hasil)
 
-    # C1
     elif cari == "C1":
         V1 = st.number_input(f"V1 ({satuan})", value=None, placeholder="Masukkan V1")
         C2 = st.number_input(f"C2 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C2")
@@ -169,7 +169,6 @@ if menu == "Kalkulator Pengenceran":
                 st.session_state.history.append(hasil)
                 st.success(hasil)
 
-    # C2
     elif cari == "C2":
         C1 = st.number_input(f"C1 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C1")
         V1 = st.number_input(f"V1 ({satuan})", value=None, placeholder="Masukkan V1")
@@ -186,7 +185,6 @@ if menu == "Kalkulator Pengenceran":
                 st.session_state.history.append(hasil)
                 st.success(hasil)
 
-    # V1
     elif cari == "V1":
         C1 = st.number_input(f"C1 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C1")
         C2 = st.number_input(f"C2 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C2")
@@ -203,7 +201,6 @@ if menu == "Kalkulator Pengenceran":
                 st.session_state.history.append(hasil)
                 st.success(hasil)
 
-    # RIWAYAT
     st.subheader("📜 Riwayat")
 
     if st.session_state.history:
@@ -259,4 +256,5 @@ elif menu == "Kenapa Gagal?":
             st.write("- Larutan tidak homogen")
         elif masalah == "End point terlalu cepat":
             st.write("- Titrasi terlalu cepat")
+            st.write("- Konsentrasi terlalu tinggi")itrasi terlalu cepat")
             st.write("- Konsentrasi terlalu tinggi")
