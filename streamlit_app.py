@@ -1,7 +1,63 @@
 import streamlit as st
 
-st.title("🧪 ChemLab Mini Tools")
+# =========================
+# PAGE CONFIG
+# =========================
+st.set_page_config(
+    page_title="ChemLab Mini Tools",
+    layout="centered"
+)
 
+# =========================
+# CSS BACKGROUND + UI STYLE
+# =========================
+st.markdown(
+    """
+    <style>
+
+    /* Background */
+    .stApp {
+        background: linear-gradient(135deg, #e0f7fa, #e8f5e9, #fff3e0);
+        background-size: 400% 400%;
+        animation: gradientBG 12s ease infinite;
+    }
+
+    @keyframes gradientBG {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+
+    /* Card container */
+    .block-container {
+        padding: 2rem;
+        border-radius: 15px;
+        background-color: rgba(255,255,255,0.88);
+        box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Button style */
+    button[kind="primary"] {
+        border-radius: 10px !important;
+        background-color: #4CAF50 !important;
+    }
+
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# =========================
+# TITLE
+# =========================
+st.markdown(
+    "<h2 style='text-align:center;color:#2e7d32;'>🧪 ChemLab Mini Tools</h2>",
+    unsafe_allow_html=True
+)
+
+# =========================
+# MENU
+# =========================
 menu = st.sidebar.selectbox(
     "Pilih Fitur",
     [
@@ -23,7 +79,7 @@ if menu == "Kalkulator Pengenceran":
         st.session_state.history = []
 
     satuan = st.selectbox("Satuan Volume", ["mL", "L"])
-    satuan_konsentrasi = st.selectbox("Satuan Konsentrasi", ["M",  "N"])
+    satuan_konsentrasi = st.selectbox("Satuan Konsentrasi", ["M", "N"])
 
     cari = st.selectbox("Pilih variabel yang ingin dicari", ["V2", "C1", "C2", "V1"])
 
