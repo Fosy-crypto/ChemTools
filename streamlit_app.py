@@ -38,7 +38,7 @@ elif menu == "Tebak Warna Reaksi":
     )
 
     if st.button("Cek Jawaban"):
-        if jawaban == "Bening":
+        if jawaban == "Tak Berwarna":
             st.success("Benar! KMnO4 tereduksi jadi Mn2+ (tidak berwarna)")
         else:
             st.error("Salah! Coba lagi 😄")
