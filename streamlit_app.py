@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 # =========================
-# THEME: NAVY + MINERAL BLUE
+# THEME: NAVY + MINERAL BLUE + FIX GARIS
 # =========================
 st.markdown(
     """
@@ -72,6 +72,28 @@ st.markdown(
         background-color: #0b1320 !important;
     }
 
+    /* =========================
+       FIX GARIS / DIVIDER STREAMLIT
+       ========================= */
+
+    hr {
+        display: none !important;
+    }
+
+    div[data-testid="stHeader"] {
+        border-bottom: none !important;
+        box-shadow: none !important;
+    }
+
+    div[data-testid="stToolbar"] {
+        display: none !important;
+    }
+
+    h1, h2, h3 {
+        border-bottom: none !important;
+        box-shadow: none !important;
+    }
+
     </style>
     """,
     unsafe_allow_html=True
@@ -113,11 +135,8 @@ if menu == "Kalkulator Pengenceran":
 
     cari = st.selectbox("Pilih variabel yang ingin dicari", ["V2", "C1", "C2", "V1"])
 
-    # =====================
     # V2
-    # =====================
     if cari == "V2":
-
         C1 = st.number_input(f"C1 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C1")
         V1 = st.number_input(f"V1 ({satuan})", value=None, placeholder="Masukkan V1")
         C2 = st.number_input(f"C2 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C2")
@@ -133,11 +152,8 @@ if menu == "Kalkulator Pengenceran":
                 st.session_state.history.append(hasil)
                 st.success(hasil)
 
-    # =====================
     # C1
-    # =====================
     elif cari == "C1":
-
         V1 = st.number_input(f"V1 ({satuan})", value=None, placeholder="Masukkan V1")
         C2 = st.number_input(f"C2 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C2")
         V2 = st.number_input(f"V2 ({satuan})", value=None, placeholder="Masukkan V2")
@@ -153,11 +169,8 @@ if menu == "Kalkulator Pengenceran":
                 st.session_state.history.append(hasil)
                 st.success(hasil)
 
-    # =====================
     # C2
-    # =====================
     elif cari == "C2":
-
         C1 = st.number_input(f"C1 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C1")
         V1 = st.number_input(f"V1 ({satuan})", value=None, placeholder="Masukkan V1")
         V2 = st.number_input(f"V2 ({satuan})", value=None, placeholder="Masukkan V2")
@@ -173,11 +186,8 @@ if menu == "Kalkulator Pengenceran":
                 st.session_state.history.append(hasil)
                 st.success(hasil)
 
-    # =====================
     # V1
-    # =====================
     elif cari == "V1":
-
         C1 = st.number_input(f"C1 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C1")
         C2 = st.number_input(f"C2 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C2")
         V2 = st.number_input(f"V2 ({satuan})", value=None, placeholder="Masukkan V2")
@@ -193,9 +203,7 @@ if menu == "Kalkulator Pengenceran":
                 st.session_state.history.append(hasil)
                 st.success(hasil)
 
-    # =====================
     # RIWAYAT
-    # =====================
     st.subheader("📜 Riwayat")
 
     if st.session_state.history:
