@@ -23,7 +23,7 @@ if menu == "Kalkulator Pengenceran":
         st.session_state.history = []
 
     satuan = st.selectbox("Satuan Volume", ["mL", "L"])
-    satuan_konsentrasi = st.selectbox("Satuan Konsentrasi", ["M", "m", "N", "%"])
+    satuan_konsentrasi = st.selectbox("Satuan Konsentrasi", ["M",  "N"])
 
     cari = st.selectbox("Pilih variabel yang ingin dicari", ["V2", "C1", "C2", "V1"])
 
