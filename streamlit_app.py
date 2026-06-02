@@ -25,18 +25,7 @@ if menu == "Kalkulator Pengenceran":
         else:
             st.error("C2 tidak boleh nol!")
 
-    M1 = st.number_input("Konsentrasi Awal (C1)", min_value=0.0)
-    V1 = st.number_input("Volume Awal (V1)", min_value=0.0)
-    M2 = st.number_input("Konsentrasi Akhir (C2)", min_value=0.0)
-
-    if st.button("Hitung C2"):
-        if V2 != 0:
-            C2 = (C1 * V1) / V2
-            st.success(f"Konsentrasi Akhir = {V2:.2f} ")
-        else:
-            st.error("V2 tidak boleh nol!")
-
-
+   
 # =========================
 # 2. Tebak Warna Reaksi
 # =========================
