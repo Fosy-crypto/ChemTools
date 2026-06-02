@@ -25,25 +25,18 @@ if menu == "Kalkulator Pengenceran":
     satuan = st.selectbox("Satuan Volume", ["mL", "L"])
     satuan_konsentrasi = st.selectbox("Satuan Konsentrasi", ["M", "m", "N", "%"])
 
-    cari = st.selectbox(
-        "Pilih variabel yang ingin dicari",
-        ["V2", "C1", "C2", "V1"]
-    )
+    cari = st.selectbox("Pilih variabel yang ingin dicari", ["V2", "C1", "C2", "V1"])
 
-    # =========================
+    # =====================
     # V2
-    # =========================
+    # =====================
     if cari == "V2":
 
-        with st.form("form_v2"):
+        C1 = st.number_input(f"C1 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C1")
+        V1 = st.number_input(f"V1 ({satuan})", value=None, placeholder="Masukkan V1")
+        C2 = st.number_input(f"C2 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C2")
 
-            C1 = st.number_input(f"C1 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C1")
-            V1 = st.number_input(f"V1 ({satuan})", value=None, placeholder="Masukkan V1")
-            C2 = st.number_input(f"C2 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C2")
-
-            submitted = st.form_submit_button("Hitung V2")
-
-        if submitted:
+        if st.button("Hitung V2"):
             if None in (C1, V1, C2):
                 st.error("Semua data harus diisi!")
             elif C2 == 0:
@@ -54,20 +47,16 @@ if menu == "Kalkulator Pengenceran":
                 st.session_state.history.append(hasil)
                 st.success(hasil)
 
-    # =========================
+    # =====================
     # C1
-    # =========================
+    # =====================
     elif cari == "C1":
 
-        with st.form("form_c1"):
+        V1 = st.number_input(f"V1 ({satuan})", value=None, placeholder="Masukkan V1")
+        C2 = st.number_input(f"C2 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C2")
+        V2 = st.number_input(f"V2 ({satuan})", value=None, placeholder="Masukkan V2")
 
-            V1 = st.number_input(f"V1 ({satuan})", value=None, placeholder="Masukkan V1")
-            C2 = st.number_input(f"C2 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C2")
-            V2 = st.number_input(f"V2 ({satuan})", value=None, placeholder="Masukkan V2")
-
-            submitted = st.form_submit_button("Hitung C1")
-
-        if submitted:
+        if st.button("Hitung C1"):
             if None in (V1, C2, V2):
                 st.error("Semua data harus diisi!")
             elif V1 == 0:
@@ -78,20 +67,16 @@ if menu == "Kalkulator Pengenceran":
                 st.session_state.history.append(hasil)
                 st.success(hasil)
 
-    # =========================
+    # =====================
     # C2
-    # =========================
+    # =====================
     elif cari == "C2":
 
-        with st.form("form_c2"):
+        C1 = st.number_input(f"C1 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C1")
+        V1 = st.number_input(f"V1 ({satuan})", value=None, placeholder="Masukkan V1")
+        V2 = st.number_input(f"V2 ({satuan})", value=None, placeholder="Masukkan V2")
 
-            C1 = st.number_input(f"C1 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C1")
-            V1 = st.number_input(f"V1 ({satuan})", value=None, placeholder="Masukkan V1")
-            V2 = st.number_input(f"V2 ({satuan})", value=None, placeholder="Masukkan V2")
-
-            submitted = st.form_submit_button("Hitung C2")
-
-        if submitted:
+        if st.button("Hitung C2"):
             if None in (C1, V1, V2):
                 st.error("Semua data harus diisi!")
             elif V2 == 0:
@@ -102,20 +87,16 @@ if menu == "Kalkulator Pengenceran":
                 st.session_state.history.append(hasil)
                 st.success(hasil)
 
-    # =========================
+    # =====================
     # V1
-    # =========================
+    # =====================
     elif cari == "V1":
 
-        with st.form("form_v1"):
+        C1 = st.number_input(f"C1 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C1")
+        C2 = st.number_input(f"C2 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C2")
+        V2 = st.number_input(f"V2 ({satuan})", value=None, placeholder="Masukkan V2")
 
-            C1 = st.number_input(f"C1 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C1")
-            C2 = st.number_input(f"C2 ({satuan_konsentrasi})", value=None, placeholder="Masukkan C2")
-            V2 = st.number_input(f"V2 ({satuan})", value=None, placeholder="Masukkan V2")
-
-            submitted = st.form_submit_button("Hitung V1")
-
-        if submitted:
+        if st.button("Hitung V1"):
             if None in (C1, C2, V2):
                 st.error("Semua data harus diisi!")
             elif C1 == 0:
@@ -126,9 +107,9 @@ if menu == "Kalkulator Pengenceran":
                 st.session_state.history.append(hasil)
                 st.success(hasil)
 
-    # =========================
+    # =====================
     # RIWAYAT
-    # =========================
+    # =====================
     st.subheader("📜 Riwayat")
 
     if st.session_state.history:
