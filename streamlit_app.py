@@ -7,7 +7,7 @@ menu = st.sidebar.selectbox("Pilih Fitur", [
     "Tebak Warna Reaksi",
     "Kenapa Gagal?"
 ])
-    "Backsound"
+menu = st.sidebar("Backsound")
 # =========================
 # 1. Kalkulator Pengenceran
 # =========================
