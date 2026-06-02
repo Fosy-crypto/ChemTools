@@ -66,5 +66,5 @@ elif menu == "Kenapa Gagal?":
             st.write("- Konsentrasi terlalu tinggi")
             st.write("- Salah perhitungan awal")
 
-elif menu =="Backsound"
+elif menu =="Backsound" :
        st.audio("cat-purr.mp3", format="audio/mpeg", loop=True)
