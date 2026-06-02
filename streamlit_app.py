@@ -7,23 +7,38 @@ menu = st.sidebar.selectbox("Pilih Fitur", [
     "Tebak Warna Reaksi",
     "Kenapa Gagal?"
 ])
-menu = st.sidebar("Backsound")
+
 # =========================
 # 1. Kalkulator Pengenceran
 # =========================
 if menu == "Kalkulator Pengenceran":
     st.header("📊 Kalkulator Pengenceran")
 
-    M1 = st.number_input("Konsentrasi Awal (M1)", min_value=0.0)
+    M1 = st.number_input("Konsentrasi Awal (C1)", min_value=0.0)
     V1 = st.number_input("Volume Awal (V1)", min_value=0.0)
-    M2 = st.number_input("Konsentrasi Akhir (M2)", min_value=0.0)
+    M2 = st.number_input("Konsentrasi Akhir (C2)", min_value=0.0)
 
     if st.button("Hitung V2"):
-        if M2 != 0:
-            V2 = (M1 * V1) / M2
+        if C2 != 0:
+            V2 = (C1 * V1) / C2
             st.success(f"Volume akhir (V2) = {V2:.2f} mL")
         else:
-            st.error("M2 tidak boleh nol!")
+            st.error("C2 tidak boleh nol!")
+
+if menu == "Kalkulator Pengenceran":
+    st.header("📊 Kalkulator Pengenceran")
+
+    M1 = st.number_input("Konsentrasi Awal (C1)", min_value=0.0)
+    V1 = st.number_input("Volume Awal (V1)", min_value=0.0)
+    M2 = st.number_input("Konsentrasi Akhir (C2)", min_value=0.0)
+
+    if st.button("Hitung C2"):
+        if V2 != 0:
+            C2 = (C1 * V1) / V2
+            st.success(f"Konsentrasi Akhir = {V2:.2f} ")
+        else:
+            st.error("V2 tidak boleh nol!")
+
 
 # =========================
 # 2. Tebak Warna Reaksi
